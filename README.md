@@ -16,6 +16,22 @@ The tool removes user-level variables by default. If it finds system-level varia
 3. If Windows asks for administrator permission, accept it only if you want to remove system-level variables.
 4. Open a new PowerShell window before running `claude`.
 
+## Completed Output
+
+When the cleanup is running or has completed, the window will show messages like this:
+
+```text
+Clearing Claude/Anthropic environment variables...
+
+Removed user variable:   ANTHROPIC_AUTH_TOKEN
+Removed user variable:   ANTHROPIC_BASE_URL
+
+Done. Open a new PowerShell window before running claude.
+Press Enter to close
+```
+
+If you only see one removed variable, it usually means only that variable existed in your user environment. That is normal. The script still checks both variables.
+
 ## 中文说明
 
 这是一个 Windows 一键清理工具，用于删除可能影响 Claude Code 第三方 API 配置的环境变量：
@@ -24,6 +40,22 @@ The tool removes user-level variables by default. If it finds system-level varia
 - `ANTHROPIC_BASE_URL`
 
 直接双击 `Clear-Claude-Anthropic-Env-OneClick.cmd` 即可。运行完成后，需要重新打开 PowerShell，再运行 `claude`。
+
+## 运行完成时的样子
+
+运行完成时，窗口会显示类似下面的内容：
+
+```text
+Clearing Claude/Anthropic environment variables...
+
+Removed user variable:   ANTHROPIC_AUTH_TOKEN
+Removed user variable:   ANTHROPIC_BASE_URL
+
+Done. Open a new PowerShell window before running claude.
+Press Enter to close
+```
+
+如果截图里只显示清除了 `ANTHROPIC_AUTH_TOKEN`，通常说明当前电脑上只有这个变量存在；脚本仍然会继续检查 `ANTHROPIC_BASE_URL`。清理完成后，必须重新打开 PowerShell，旧窗口里的环境变量不会自动刷新。
 
 ## Notes
 
